@@ -10,4 +10,4 @@ def add(a: int, b: int) -> int:
 
 
 if __name__ == "__main__":
-    mcp.run(transport="stdio")
+    mcp.run(transport="stdio")  # set the transport to stdio
