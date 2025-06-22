@@ -53,3 +53,31 @@ make http-mcp-example
 ```
 
 Make sure to set the transport to `Streamable HTTP` and the URL to `http://localhost:8080/mcp`.
+
+### 3. Simple MCP
+
+This simple MCP server has tools, resources, and prompts. To run the MCP in Simple mode, run the following command:
+
+```bash
+make simple-mcp-example
+```
+
+This will start the MCP server under the `simple-mcp-example` directory. Then open the MCP inspector link in the terminal.
+
+Alternatively, you can use the following MCP configuration to use the MCP in Cluade desktop or Cursor:
+
+```json
+{
+  "mcpServers": {
+    "simple-mcp-example": {
+      "command": "/PATH/TO/uv", # you can find the path to uv in the terminal by running `which uv`(macOS) or `where uv`(Windows). For eg: '/opt/homebrew/bin/uv'
+      "args": [
+        "--directory",
+        "/PATH/TO/cookbook/mcp/simple-mcp-example",
+        "run",
+        "server.py"
+      ]
+    }
+  }
+}
+```
