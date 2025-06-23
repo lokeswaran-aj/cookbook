@@ -1,4 +1,4 @@
-.PHONY: install stdio-mcp-example http-mcp-example simple-mcp-example
+.PHONY: install stdio-mcp-example http-mcp-example simple-mcp-example restaurant-mcp
 
 install:
 	uv sync
@@ -14,3 +14,7 @@ http-mcp-example:
 
 simple-mcp-example:
 	fastmcp dev simple-mcp-example/server.py
+
+
+restaurant-mcp:
+	fastmcp dev restaurant-mcp/server.py
