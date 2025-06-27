@@ -1,12 +1,26 @@
+import requests
 from fastmcp import FastMCP
 
-mcp = FastMCP("Calculator")
+mcp = FastMCP("URL Shortener")
 
 
 @mcp.tool
-def add(a: int, b: int) -> int:
-    """Add two numbers"""
-    return a + b
+def shorten_url(url: str) -> str:
+    """Shorten a URL"""
+    base_url = "https://spoo.me/"
+
+    payload = {
+        "url": url,
+    }
+
+    headers = {
+        "Accept": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
+    }
+
+    response = requests.request("POST", base_url, data=payload, headers=headers)
+
+    return response.json()
 
 
 if __name__ == "__main__":

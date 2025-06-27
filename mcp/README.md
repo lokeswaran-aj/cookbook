@@ -20,10 +20,19 @@ make stdio-mcp-example
 
 This will start the MCP server under the `stdio-mcp-example` directory. Then open the MCP inspector link in the terminal.
 
-Alternatively, you can run the following command:
+Alternatively, you can add to your host MCP configurationsfile:
 
-```bash
-fastmcp dev stdio-mcp-example/server.py
+```json
+"addition-mcp": {
+  "command": "uv",
+  "args": [
+    "--directory",
+    "/PATH/TO/cookbook/mcp/stdio-mcp-example",
+    "run",
+    "server.py"
+  ],
+  "disabled": false
+}
 ```
 
 ### 2. Streamable HTTP MCP

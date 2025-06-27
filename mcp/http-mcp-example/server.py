@@ -1,17 +1,19 @@
+import requests
 from fastmcp import FastMCP
 
-mcp = FastMCP("Calculator")  # define host and port
+mcp = FastMCP("F1 Race")
 
 
 @mcp.tool
-def add(a: int, b: int) -> int:
-    """Add two numbers"""
-    return a + b
+def get_race_results(round: int = 1, year: int = 2025) -> dict:
+    """Get the results of a F1 race"""
+    response = requests.get(f"https://f1api.dev/api/{year}/{round}/race")
+    return response.json()
 
 
 if __name__ == "__main__":
     mcp.run(
-        transport="streamable-http",
+        transport="streamable-http",  # set the transport to streamable-http
         host="127.0.0.1",
         port=8080,
-    )  # set the transport to streamable-http
+    )
